@@ -1,37 +1,3 @@
-import os
-import string
-
-#Import Word List
-word_file = open(os.path.expanduser("~/words.txt"))
-word_list = []
-
-for word in word_file:
-    word_list.append(word.strip().lower())
-
-#Import Name File
-#name_file = open(os.path.expanduser("~/names.txt"))
-#name_list = []
-
-#for name in name_file:
-#    name_list.append(name.strip().lower())
-
-##Filter to Target List (5 letter words and no names)
-target_list = [x for x in word_list if len(x) == 5]
-#target_list = [x for x in target_list if x not in name_list]
-
-
-
-for word in target_list:
-    if word.find("'") >= 0:
-        target_list.remove(word)
-    if word.find("-") >= 0:
-        target_list.remove(word)
-    if word.find(")") >= 0:
-        target_list.remove(word)
-    if word.find("/") >= 0:
-        target_list.remove(word)
-    if ' ' in word:
-        target_list.remove(word)
 
 
 ##Find Most Advantageous Word
